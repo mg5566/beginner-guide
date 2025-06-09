@@ -28,6 +28,24 @@ git clone https://github.com/argoproj/argo-workflows.git
 127.0.0.1 azurite
 ```
 
+#### A. kind 설치 및 cluster 생성
+
+로컬 k8s 환경을 구축하기 위해서 k3d, kind, minikube 등을 사용할 수 있습니다.  
+이번 가이드에서는 kind 를 사용합니다.
+
+```shell
+# 1. kind 설치
+# 해당 링크 참고 https://kind.sigs.k8s.io/docs/user/quick-start#installing-with-a-package-manager
+
+# 2. kind cluster 생성
+$ kind create cluster
+
+# 3. cluster 확인
+$ kind get clusters
+```
+
+#### B. /etc/hosts 등록하기
+
 /etc/hosts 등록하는 방법
 
 ```shell
@@ -38,7 +56,11 @@ or
 $ sudo vi /etc/hosts
 ```
 
+![local DNS setting](./images/스크린샷%202025-06-09%20오후%201.42.30.png)
+
 ### 3. 실행하기
+
+✅ asdf 를 사용하면 node.js 를 못찾는 문제가 존재합니다. nvm 사용을 권장합니다.
 
 준비가 끝났다면 argo-workflows 를 실행해보겠습니다.
 
